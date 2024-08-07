@@ -1,0 +1,18 @@
+.containerApp{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgb(254,229,59);
+  background: -moz-linear-gradient(90deg, rgba(254,229,59,1) 0%, rgba(250,49,0,1) 100%, rgba(255,236,230,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(254,229,59,1) 0%, rgba(250,49,0,1) 100%, rgba(255,236,230,1) 100%);
+  background: linear-gradient(90deg, rgba(254,229,59,1) 0%, rgba(250,49,0,1) 100%, rgba(255,236,230,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fee53b",endColorstr="#ffece6",GradientType=1);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
