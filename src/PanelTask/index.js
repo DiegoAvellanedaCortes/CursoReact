@@ -1,3 +1,5 @@
+import "./PanelTask.css"
+
 function PanelTask({children}){
     return(
         <div className="PanelTask">

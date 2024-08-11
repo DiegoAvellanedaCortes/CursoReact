@@ -1,3 +1,5 @@
+import "./TaksItem.css"
+
 function TaksItem(){
     return(
         <div className="TaksItem">

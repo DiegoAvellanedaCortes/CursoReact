@@ -1,0 +1,18 @@
+.TaksItem{
+    width: 100%; 
+    background-color: #ffece6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-radius: 25px;
+    position: relative;
+}
+
+.TaksItem span{
+    margin: 0 20px;
+}
+
+.TaksItem p{
+    margin: 0 20px;
+}
