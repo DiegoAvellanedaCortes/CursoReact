@@ -1,13 +1,27 @@
 import "./TaksItem.css"
 
-function TaksItem({name, completed}){
-    return(
+function TaksItem({ name, completed, onComplete, onDelete }) {
+    return (
         <div className="TaksItem">
-            <span className={`Icon ${completed && "active"}`}>V</span>
-            <p>{name}</p>
-            <span className="Icon_delete">X</span>
+            <span
+                className={`Icon ${completed && "active"}`}
+                onClick={
+                    () => {
+                        onComplete(name)
+                    }
+                }
+            >V</span>
+            <p className={`Taks ${completed && "completed"}`}>{name}</p>
+            <span
+                className="Icon_delete"
+                onClick={
+                    ()=>{
+                        onDelete(name)
+                    }
+                }
+            >X</span>
         </div>
     );
 }
 
-export {TaksItem}
+export { TaksItem }

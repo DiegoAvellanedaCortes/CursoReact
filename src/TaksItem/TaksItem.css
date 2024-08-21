@@ -12,7 +12,7 @@
 
 .Icon{
     margin: 0 20px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .Icon_delete{
@@ -24,11 +24,16 @@
     color: red;
 }
 
-.TaksItem p{
-    margin: 0 20px;
-}
 
 .active{
     color: green;
     font-weight: bold;
+}
+
+.Taks{
+    margin: 0 20px;
+}
+
+.completed{
+    text-decoration: line-through; /* Texto tachado */
 }

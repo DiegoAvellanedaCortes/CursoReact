@@ -1,8 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import "./TaksSearch.css";
 
-function TaksSearch({totalTaks}){
-    let taksComplete=1;
+function TaksSearch({totalTaks, taksComplete, searchValue, setSearchValueSearch}){
     return(
         <div className="containerSearch">
             <h2>Tus tareas</h2>
@@ -11,7 +10,12 @@ function TaksSearch({totalTaks}){
                 <input 
                 type="text" 
                 placeholder="Escribir"
-                
+                value={searchValue}
+                onChange={
+                    (event)=>{
+                        setSearchValueSearch(event.target.value)
+                    }
+                }
                 />
                 <span className="IconSearch">
                     <FaSearch/>
