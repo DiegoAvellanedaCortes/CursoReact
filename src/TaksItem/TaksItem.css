@@ -7,12 +7,28 @@
     padding: 15px 0;
     border-radius: 25px;
     position: relative;
+    margin-top: 10px;
 }
 
-.TaksItem span{
+.Icon{
     margin: 0 20px;
+    cursor: default;
+}
+
+.Icon_delete{
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.Icon_delete:hover{
+    color: red;
 }
 
 .TaksItem p{
     margin: 0 20px;
+}
+
+.active{
+    color: green;
+    font-weight: bold;
 }
