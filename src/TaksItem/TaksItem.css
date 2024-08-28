@@ -16,13 +16,16 @@
 }
 
 svg{
-    height: 20px;
+    height: 20px
 }
 
-.Icon_delete:hover{
-    color: red;
+.Icon_delete:hover svg{
+    fill: red;
 }
 
+.Icon_check:hover svg{
+    fill: #9FC131;
+}
 
 .active{
     color: green;

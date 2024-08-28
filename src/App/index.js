@@ -86,8 +86,8 @@ function App() {
               key={tak.taks_name}
               name={tak.taks_name}
               completed={tak.completed}
-              onComplete={completeTaks}
-              onDelete={deleteTaks}
+              onComplete={()=>completeTaks(tak.taks_name)}
+              onDelete={()=>deleteTaks(tak.taks_name)} //  Encapsular función para enviar como prop ()=>deleteTaks(tak.taks_name)
             />
           ))}
         </PanelTask>
