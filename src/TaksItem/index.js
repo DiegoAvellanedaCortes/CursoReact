@@ -1,3 +1,5 @@
+import { CompleteIcon } from "../TaksItem/CompleteIcon";
+import { DeleteIcon } from "../TaksItem/DeleteIcon";
 import "./TaksItem.css"
 
 function TaksItem({ name, completed, onComplete, onDelete }) {
@@ -10,16 +12,20 @@ function TaksItem({ name, completed, onComplete, onDelete }) {
                         onComplete(name)
                     }
                 }
-            >V</span>
+            >
+                <CompleteIcon type={"check"} />
+            </span>
             <p className={`Taks ${completed && "completed"}`}>{name}</p>
             <span
                 className="Icon_delete"
                 onClick={
-                    ()=>{
+                    () => {
                         onDelete(name)
                     }
                 }
-            >X</span>
+            >
+                <DeleteIcon type={"delete"} />
+            </span>
         </div>
     );
 }
