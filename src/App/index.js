@@ -4,8 +4,32 @@ import { TaksInfo } from '../TaksInfo';
 import { TaksSearch } from '../TaksSearch';
 import { PanelTask } from '../PanelTask';
 import { TaksItem } from '../TaksItem';
-//import { TaksContext } from '../TaksContext';
 import React from 'react';
+
+function useLocalStorage(itemName, itemValue) {
+  //Variable para consultar si existe el item en localStorage
+  const items_localStorege = localStorage.getItem(itemName);
+  
+  let parsedItems;
+  
+  //If para preguntar si no existe el item y dar valor
+  if (!items_localStorege) {
+    parsedItems = [];
+    localStorage.setItem(itemName, JSON.stringify(itemValue)); //Transformamos el array para localStorage
+  } else {
+    parsedItems = JSON.parse(items_localStorege) //Transformamos el string a array para renderizar 
+    localStorage.setItem(itemName, JSON.stringify(parsedItems));
+  }
+
+  const [item, setItem]=React.useState(parsedItems);
+  
+  const saveItems = (newTaks) => { //Función actualizadora del estado y del LocalStorage
+    localStorage.setItem(itemName, JSON.stringify(newTaks));
+    setItem(newTaks);
+  }
+
+  return [item, saveItems];
+}
 
 function App() {
   // const taksDefault = [
@@ -35,29 +59,8 @@ function App() {
   //Estado del input para filtrar tareas
   const [searchValue, setSearchValueSearch] = React.useState("");
 
-  //Variable para consultar si existe el item en localStorage
-  const taks_localStorege=localStorage.getItem("Taks_V1");
-  
-  let parsedTaks;
-
-  //If para preguntar si no existe el item y dar valor
-  if(!taks_localStorege){
-    parsedTaks=[];
-    localStorage.setItem("Taks_v1", JSON.stringify([])); //Transformamos el array para localStorage
-  }else{
-    parsedTaks = JSON.parse(taks_localStorege) //Transformamos el string a array para renderizar 
-    localStorage.setItem("Taks_v1", JSON.stringify(parsedTaks));
-  }
-  
-  //Estado para las tareas
-  const [taks, setTaks] = React.useState(parsedTaks); //Pasamos la variable como valor inicial
-
-  const saveTaks=(newTaks)=>{ //Función actualizadora del estado y del LocalStorage
-    localStorage.setItem("Taks_V1", JSON.stringify(newTaks));
-    setTaks(newTaks);
-  }
-
-
+  //Custom Hook useLocalStorage
+  const [taks, saveTaks] = useLocalStorage("Taks_V1", []); //Pasamos la variable como valor inicial
 
   //Estado derivado (En donde se filtran las tareas segun el input del usuario)
   const searchTaks = taks.filter((tak) => {

@@ -1,5 +1,0 @@
-function useLocalStorage(){
-    
-}
-
-export {useLocalStorage}
