@@ -33,7 +33,13 @@ function App() {
   const [searchValue, setSearchValueSearch] = React.useState("");
 
   //Custom Hook useLocalStorage
-  const [taks, saveTaks] = useLocalStorage("Taks_V1", []); //Pasamos la variable como valor inicial
+  const {
+    item: taks,
+    saveItems: saveTaks,
+    loading,
+    error 
+  } = useLocalStorage("Taks_V1", []); //Pasamos la variable como valor inicial
+
 
   //Estado derivado (En donde se filtran las tareas segun el input del usuario)
   const searchTaks = taks.filter((tak) => {
@@ -77,6 +83,8 @@ function App() {
       searchTaks={searchTaks}
       completeTaks={completeTaks}
       deleteTaks={deleteTaks}
+      loading={loading}
+      error={error}
     />
   );
 }

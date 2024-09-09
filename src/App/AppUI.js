@@ -3,15 +3,20 @@ import { TaksInfo } from '../TaksInfo';
 import { TaksSearch } from '../TaksSearch';
 import { PanelTask } from '../PanelTask';
 import { TaksItem } from '../TaksItem';
+import { TaksLoading } from '../TaksLoading';
+import { TaksError } from '../TaksError';
+import { TaksEmpty } from '../TaksEmpty';
 
 function AppUI({
     countTaksCompleted,
     searchValue,
     setSearchValueSearch,
-    taks, 
+    taks,
     searchTaks,
     completeTaks,
-    deleteTaks
+    deleteTaks,
+    loading,
+    error
 }) {
     return (
         <div className='containerApp'>
@@ -24,6 +29,20 @@ function AppUI({
                     setSearchValueSearch={setSearchValueSearch}
                 />
                 <PanelTask>
+                    {loading && (
+                        <>
+                            <TaksLoading />
+                            <TaksLoading />
+                            <TaksLoading />
+                            <TaksLoading />
+                            <TaksLoading />
+                        </>
+                    )
+                    }
+
+                    {error && <TaksError />}
+                    {(!loading && taks.length === 0) && <TaksEmpty />}
+
                     {searchTaks.map(tak => (
                         <TaksItem
                             key={tak.taks_name}
@@ -39,4 +58,4 @@ function AppUI({
     );
 }
 
-export {AppUI}
+export { AppUI }
