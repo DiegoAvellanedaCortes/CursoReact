@@ -1,6 +1,8 @@
+import "./TaksEmpty.css"
+
 function TaksEmpty () {
     return (
-        <p>Empty</p>
+        <p className="titulo-empty">No tienes tareas creadas, crea una ahora!!</p>
     );
 }
 
