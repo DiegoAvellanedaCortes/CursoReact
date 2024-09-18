@@ -40,7 +40,7 @@ function AppUI({
                     )
                     }
 
-                    {error && <TaksError />}
+                    { error && <TaksError />}
                     {(!loading && taks.length === 0 && error!== true) && <TaksEmpty />}
 
                     {searchTaks.map(tak => (

@@ -1,6 +1,8 @@
+import "./TaksError.css"
+
 function TaksError(){
     return(
-        <p>Error</p>
+        <p className="ErrorMensaje">Error!!</p>
     );
 }
 
