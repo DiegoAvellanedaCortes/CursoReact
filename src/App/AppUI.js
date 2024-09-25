@@ -6,53 +6,51 @@ import { TaksItem } from '../TaksItem';
 import { TaksLoading } from '../TaksLoading';
 import { TaksError } from '../TaksError';
 import { TaksEmpty } from '../TaksEmpty';
+import { TaksContext } from '../TaksContext';
 
-function AppUI({
-    countTaksCompleted,
-    searchValue,
-    setSearchValueSearch,
-    taks,
-    searchTaks,
-    completeTaks,
-    deleteTaks,
-    loading,
-    error
-}) {
+function AppUI() {
     return (
         <div className='containerApp'>
             <NewTaksContainer />
             <TaksInfo>
-                <TaksSearch
-                    totalTaks={taks.length}
-                    taksComplete={countTaksCompleted}
-                    searchValue={searchValue}
-                    setSearchValueSearch={setSearchValueSearch}
-                />
-                <PanelTask>
-                    {loading && (
-                        <>
-                            <TaksLoading />
-                            <TaksLoading />
-                            <TaksLoading />
-                            <TaksLoading />
-                            <TaksLoading />
-                        </>
-                    )
-                    }
+            <TaksSearch/>
+                <TaksContext.Consumer>
+                    {({
+                        taks,
+                        searchTaks,
+                        completeTaks,
+                        deleteTaks,
+                        loading,
+                        error }) => (
+                            
+                        <PanelTask>
+                            {loading && (
+                                <>
+                                    <TaksLoading />
+                                    <TaksLoading />
+                                    <TaksLoading />
+                                    <TaksLoading />
+                                    <TaksLoading />
+                                </>
+                            )
+                            }
+    
+                            {error && <TaksError />}
+                            {(!loading && taks.length === 0 && error !== true) && <TaksEmpty />}
+    
+                            {searchTaks.map(tak => (
+                                <TaksItem
+                                    key={tak.taks_name}
+                                    name={tak.taks_name}
+                                    completed={tak.completed}
+                                    onComplete={() => completeTaks(tak.taks_name)}
+                                    onDelete={() => deleteTaks(tak.taks_name)} //  Encapsular función para enviar como prop ()=>deleteTaks(tak.taks_name)
+                                />
+                            ))}
+                        </PanelTask>)}
+                    
+                </TaksContext.Consumer>
 
-                    { error && <TaksError />}
-                    {(!loading && taks.length === 0 && error!== true) && <TaksEmpty />}
-
-                    {searchTaks.map(tak => (
-                        <TaksItem
-                            key={tak.taks_name}
-                            name={tak.taks_name}
-                            completed={tak.completed}
-                            onComplete={() => completeTaks(tak.taks_name)}
-                            onDelete={() => deleteTaks(tak.taks_name)} //  Encapsular función para enviar como prop ()=>deleteTaks(tak.taks_name)
-                        />
-                    ))}
-                </PanelTask>
             </TaksInfo>
         </div>
     );

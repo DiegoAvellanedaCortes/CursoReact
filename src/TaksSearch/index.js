@@ -1,7 +1,11 @@
 import { FaSearch } from "react-icons/fa";
 import "./TaksSearch.css";
+import React from "react";
+import { TaksContext } from "../TaksContext";
 
-function TaksSearch({totalTaks, taksComplete, searchValue, setSearchValueSearch}){
+function TaksSearch(){
+    const {totalTaks, taksComplete, searchValue, setSearchValueSearch}=React.useContext(TaksContext);
+
     return(
         <div className="containerSearch">
             <h2>Tus tareas</h2>
