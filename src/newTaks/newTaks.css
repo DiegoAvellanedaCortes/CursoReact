@@ -43,3 +43,11 @@
     background-color: #fa3100;
     color: white;
 }
+
+.botonNewtaks{
+    cursor: pointer;
+}
+
+.botonModal{
+    cursor: pointer;
+}

@@ -43,7 +43,7 @@ function TaksProvider({children}) {
     } = useLocalStorage("Taks_V1", []); //Pasamos la variable como valor inicial
 
     //Estado para modal
-    const [openModal, setOpenModal]=React.useState(true);
+    const [openModal, setOpenModal]=React.useState(false);
 
     //Estado derivado (En donde se filtran las tareas segun el input del usuario)
     const searchTaks = taks.filter((tak) => {
