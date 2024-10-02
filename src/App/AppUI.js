@@ -20,7 +20,6 @@ function AppUI() {
         loading,
         error,
         openModal,
-        setOpenModal,
     } = React.useContext(TaksContext);
     
     return (

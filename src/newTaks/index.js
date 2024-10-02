@@ -3,7 +3,7 @@ import './newTaks.css'
 import { TaksContext } from '../TaksContext';
 
 function NewTaksContainer() {
-    const { setOpenModal } = React.useContext(TaksContext);
+    const { setOpenModal, addTaks } = React.useContext(TaksContext);
     const [datos, setDatos]=React.useState("");
 
     const onChange=(event)=>{
@@ -25,7 +25,7 @@ function NewTaksContainer() {
                     className='boton botonNewtaks'
                     onClick={
                         (event) => {
-                            alert(datos);
+                           addTaks(datos)
                         }
                     }
                 >Crear Tarea</button>

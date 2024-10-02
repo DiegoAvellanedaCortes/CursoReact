@@ -68,6 +68,17 @@ function TaksProvider({children}) {
         saveTaks(newTaks);
     }
 
+    //Creamos nueva tarea, recibimos como parametro el nombre de la tarea
+    const addTaks=(new_tak)=>{
+        const tak={
+            taks_name:new_tak,
+            completed:false,
+        }  //Objeto para crear tarea
+        const newTaks = [...taks]; //Duplicamos el array de tareas
+        newTaks.push(tak)//Agregamos el objeto al array de tareas
+        saveTaks(newTaks); //Función actualizadora del array original y localstorage
+    }
+
     //Eliminar tareas
     const deleteTaks = (text) => {
         const newTaks = [...taks];
@@ -93,6 +104,7 @@ function TaksProvider({children}) {
             error,
             openModal,
             setOpenModal,
+            addTaks,
         }}>
             {children}
         </TaksContext.Provider>
