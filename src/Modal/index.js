@@ -1,10 +1,11 @@
 import { createPortal } from "react-dom";
 import "./Modal.css"
+import { TaksForm } from "../TaksForm";
 
-function Modal ({children}){
+function Modal (){
     return createPortal(
         <div className="Modal">
-            {children}
+            <TaksForm/>
         </div>,
         document.getElementById("modal")
     );

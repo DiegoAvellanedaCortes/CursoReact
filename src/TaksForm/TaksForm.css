@@ -1,0 +1,40 @@
+.form_Create_Tak{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_Create_Tak label {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form_Create_Tak input {
+    font-size: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+}
+
+.boton_Form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton_Form button{
+    width: 45%;
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px;
+    border: none;
+    border-radius: 25px;
+    background-color: #fa3100;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: white;
+    color: #fa3100;
+    border: 1px solid  #fa3100;
+}
