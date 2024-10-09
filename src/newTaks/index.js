@@ -26,9 +26,11 @@ function NewTaksContainer() {
                     onClick={
                         (event) => {
                            addTaks(datos)
+                           setDatos("");
                         }
                     }
                 >Crear Tarea</button>
+                
                 <button
                     className='boton botonModal'
                     onClick={
@@ -36,7 +38,7 @@ function NewTaksContainer() {
                             setOpenModal(status => !status);
                         }
                     }
-                >Crear Tarea Modal</button>
+                >Crear Tarea</button>
             </div>
 
         </div >

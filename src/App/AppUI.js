@@ -30,13 +30,13 @@ function AppUI() {
 
                 <PanelTask>
                     {loading && (
-                        <>
+                        <div className='div-loading'>
                             <TaksLoading />
                             <TaksLoading />
                             <TaksLoading />
                             <TaksLoading />
                             <TaksLoading />
-                        </>
+                        </div>
                     )
                     }
 
@@ -57,7 +57,7 @@ function AppUI() {
             </TaksInfo>
             {openModal && (
                 <Modal>
-                    Alguito de prueba
+                   
                 </Modal>
             )}
         </div>

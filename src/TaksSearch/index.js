@@ -4,12 +4,12 @@ import React from "react";
 import { TaksContext } from "../TaksContext";
 
 function TaksSearch(){
-    const {totalTaks, taksComplete, searchValue, setSearchValueSearch}=React.useContext(TaksContext);
-
+    const {taks, countTaksCompleted, searchValue, setSearchValueSearch}=React.useContext(TaksContext);
+      
     return(
         <div className="containerSearch">
             <h2>Tus tareas</h2>
-            <p>Completaste {taksComplete} de {totalTaks}</p>
+            <p>Completaste {countTaksCompleted} de {taks.length}</p>
             <div className="dataSearch">
                 <input 
                 type="text" 

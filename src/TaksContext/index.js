@@ -42,6 +42,8 @@ function TaksProvider({children}) {
         error
     } = useLocalStorage("Taks_V1", []); //Pasamos la variable como valor inicial
 
+    
+
     //Estado para modal
     const [openModal, setOpenModal]=React.useState(false);
 
